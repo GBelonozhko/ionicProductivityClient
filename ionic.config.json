@@ -1,0 +1,7 @@
+{
+  "name": "productivity",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
