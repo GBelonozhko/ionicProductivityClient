@@ -42,11 +42,6 @@ import * as actions from './store/actions/Auth.Action';
 const App: React.FC = () => {
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(actions.authCheckState())
-  }, [])
-
-
 
   return(<IonApp>
     <SideDrawer/>

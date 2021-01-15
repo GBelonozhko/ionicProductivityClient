@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import {
   IonButton,
   IonCard,
@@ -18,26 +18,18 @@ import { useDispatch, useSelector } from "react-redux";
 import * as action from '../store/actions/Auth.Action';
 import { Redirect } from "react-router";
 import { AuthState } from "../interface";
+import AuthContext from '../context/authContext';
 
+const Login: React.FC = () => {
 
-const Login: React.FC<{}> = () => {
-
-  const dispatch = useDispatch();
-
-  const token = (state:AuthState) =>state.token;
-  const loginToken =useSelector(token);
+  const authCtx = useContext(AuthContext)
 
   const signin = (event: React.MouseEvent<HTMLIonButtonElement, MouseEvent>) => {
-    event.preventDefault();
-    dispatch(action.auth( "odessagreg@gmail.com", "rock92", true ))
     
+    authCtx.login( "odessagreg@gmail.com", "rock92")
+   
   };
 
-  const redirectUser =()=>{
-    if (loginToken!==null){
-      return <Redirect to="/"/>
-    }
-  }
 
   return (
     <React.Fragment>

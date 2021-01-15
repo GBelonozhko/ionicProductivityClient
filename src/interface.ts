@@ -11,9 +11,14 @@ export interface TodoListState {
     totalCompletes:number,
     totalTasks:number,
     todos:Array<any>
-}
+};
 
-export interface AuthContext{
-    authState: AuthState,
-    login:(email: string, password: string)
-}
+export interface AuthContextInterface{
+    token: string,
+    userId: string,
+    error: string | null,
+    loading: boolean,
+   
+    login:(email: string, password: string) => void
+};
+
